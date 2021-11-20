@@ -1,1 +1,159 @@
 
+class hotelmanage:
+
+    def _init_(self, rt='', s=0, p=0, r=0, t=0, a=1000, name='', address='', cindate='', coutdate='',Total=''):
+
+        self.rt = rt
+
+        self.r = r
+
+        self.t = t
+
+        self.p = p
+
+        self.s = s
+        self.a = a
+        self.name = name
+        self.address = address
+        self.cindate = cindate
+        self.coutdate = coutdate
+        self.Total = Total
+
+    def inputdata(self):
+        self.name = input("\nEnter your Fullname:")
+        self.address = input("\nEnter your address:")
+        self.cindate = input("\nEnter your check in date:")
+        self.coutdate = input("\nEnter your checkout date:")
+        self.Total = input("Types of Classes?:")
+        print("Your room no.:", self.Total,"\n")
+
+    def Districts(self):
+        print("1.Kadapa")
+        print("2.Ananthapuram")
+        print("3.Kurnool")
+        print("4.Chittor")
+        h = int(input("Enter your choice: "))
+        if (h == 1):
+            print("You have selected Kadapa District: ")
+            print("1.Hotel 1")
+            print("2.Hotel 2")
+            print("3.Hotel 3")
+            print("4.Hotel 4")
+            print("5.Hotel 5")
+
+        if (h == 2):
+            print("You have selected Ananthapuram District: ")
+            print("1.Hotel 1")
+            print("2.Hotel 2")
+            print("3.Hotel 3")
+            print("4.Hotel 4")
+            print("5.Hotel 5")
+            hotel = int(input("Enter Hotel Number: "))
+            print("You have selected Hotel No: ", hotel)
+        if (h == 3):
+            print("You have selected Kurnool District: ")
+            print("1.Hotel 1")
+            print("2.Hotel 2")
+            print("3.Hotel 3")
+            print("4.Hotel 4")
+            print("5.Hotel 5")
+        if (h == 4):
+            print("You have selected Chittor District: ")
+            print("1.Hotel 1")
+            print("2.Hotel 2")
+            print("3.Hotel 3")
+            print("4.Hotel 4")
+            print("5.Hotel 5")
+
+    def roomrent(self):  # sel1353
+
+        print("We have the following rooms for you:-")
+
+        print("1.  Class A----;40000")
+
+        print("2.  Class B----;30000")
+
+        print("3.  Class C----;20000")
+
+        print("4.  Class D----;10000")
+
+        x = int(input("Enter the number of your choice Please-;"))
+
+        n = int(input("For How Many Nights Did You Stay:"))
+
+        if (x == 1):
+
+            print("you have choose room Class A")
+
+            self.s = 40000 * n
+
+        elif (x == 2):
+
+            print("you have choose room Class B")
+
+            self.s = 30000 * n
+
+        elif (x == 3):
+
+            print("you have choose room Class C")
+
+            self.s = 20000 * n
+
+        elif (x == 4):
+            print("you have choose room Class D")
+
+            self.Total = 10000 * n
+
+        else:
+
+            print("please choose a room")
+
+        print("your choosen room rent is =", self.s, "\n")
+
+    def display(self):
+        print("***HOTEL BILL***")
+        print("Customer details:")
+        print("Customer name:", self.name)
+        print("Customer address:", self.address)
+        print("Check in date:", self.cindate)
+        print("Check out date", self.coutdate)
+        print("Your Room rent is:", self.s)
+
+        self.rt = self.s + self.t + self.p + self.r
+
+        print("Your sub total Purchased is:", self.rt)
+        print("Additional Service Charges is", self.a)
+        print("Your grandtotal Purchased is:", self.rt + self.a, "\n")
+        self.Total += 1
+
+
+def main():
+    a = hotelmanage()
+
+    while (1):
+        print("1.Select the Districts")
+
+        print("2.Calculate Room Rent")
+
+        print("3.Show total cost")
+
+        print("4.EXIT")
+
+        b = int(input("\nEnter the number of your choice:"))
+        if (b == 1):
+            a.Districts()
+            a.inputdata()
+            a.roomrent()
+
+
+        if (b == 2):
+            a.roomrent()
+
+        if (b == 3):
+            a.display()
+
+        if (b == 4):
+            quit()
+
+
+main()
